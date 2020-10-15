@@ -19,11 +19,13 @@
                     border-radius: 5px;
                     padding: 10px 10px 10px 0px;
                 }
-
                 .art {
                     width: 27%;
                     float: left;
                     margin-left: -5px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
                 }
 
                 .content {
@@ -81,9 +83,7 @@
 
             <div class="main">
                 <a class="art" href="{}" target="_blank">
-                    <center>
-                        <img src="data:image/png;base64, {{image}}" class="cover" />
-                    </center>
+                    <img src="data:image/png;base64, {{image}}" class="cover" />
                 </a>
 
                 <div class="content">
