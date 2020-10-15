@@ -69,32 +69,13 @@ def nowPlaying():
     return response.json()
 
 
-def barGen(barCount):
-    barCSS = ""
-    left = 1
-    for i in range(1, barCount + 1):
-        anim = random.randint(1000, 1350)
-        barCSS += (
-            ".bar:nth-child({})  {{ left: {}px; animation-duration: {}ms; }}".format(
-                i, left, anim
-            )
-        )
-        left += 4
-    return barCSS
-
-
 def loadImageB64(url):
     resposne = requests.get(url)
     return b64encode(resposne.content).decode("ascii")
 
-
 def makeSVG(data):
-    barCount = 84
-    contentBar = "".join(["<div class='bar'></div>" for i in range(barCount)])
-    barCSS = barGen(barCount)
 
     if data == {} or data["item"] == "None":
-        # contentBar = "" #Shows/Hides the EQ bar if no song is currently playing
         currentStatus = "Was playing:"
         recentPlays = recentlyPlayed()
         recentPlaysLength = len(recentPlays["items"])
@@ -108,8 +89,6 @@ def makeSVG(data):
     songName = item["name"].replace("&", "&amp;")
 
     dataDict = {
-        #"contentBar": contentBar,
-        "barCSS": barCSS,
         "artistName": artistName,
         "songName": songName,
         "image": image,
