@@ -108,7 +108,7 @@ def makeSVG(data):
     songName = item["name"].replace("&", "&amp;")
 
     dataDict = {
-        "contentBar": contentBar,
+        #"contentBar": contentBar,
         "barCSS": barCSS,
         "artistName": artistName,
         "songName": songName,
