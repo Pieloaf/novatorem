@@ -15,6 +15,7 @@ load_dotenv(find_dotenv())
 SPOTIFY_CLIENT_ID = os.getenv("SPOTIFY_CLIENT_ID")
 SPOTIFY_SECRET_ID = os.getenv("SPOTIFY_SECRET_ID")
 SPOTIFY_REFRESH_TOKEN = os.getenv("SPOTIFY_REFRESH_TOKEN")
+print(SPOTIFY_REFRESH_TOKEN)
 
 REFRESH_TOKEN_URL = "https://accounts.spotify.com/api/token"
 NOW_PLAYING_URL = "https://api.spotify.com/v1/me/player/currently-playing"
@@ -36,7 +37,7 @@ def refreshToken():
         "grant_type": "refresh_token",
         "refresh_token": SPOTIFY_REFRESH_TOKEN,
     }
-
+    print(SPOTIFY_REFRESH_TOKEN)
     headers = {"Authorization": "Basic {}".format(getAuth())}
     response = requests.post(REFRESH_TOKEN_URL, data=data, headers=headers)
     
